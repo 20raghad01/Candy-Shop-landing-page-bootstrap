@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+      .carousel-control-next-icon {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dc3545'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+       }
+       .carousel-control-prev-icon {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dc3545'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+       }
+       .pinkbtn{
+          background-color: #dc3545 !important;
+          border-radius: 50% !important;
+          height: 10px !important;
+          width: 10px !important;
+       }
+
+    </style>
+  </head>
+  <body>
+    
+    <nav
+      class="navbar navbar-expand-lg bg-danger border-bottom border-body position-sticky sticky-top" 
+      data-bs-theme="dark"
+    >
+      <div class="container ">
+        <a class="navbar-brand" href="#">
+          <svg height="65px" width="45px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#ffffff;" d="M233.109,115.625l-0.088-56.048l-0.039-25.325l-0.038-24.61 c-21.416,7.833-41.045,20.293-57.635,36.885c-26.609,26.607-26.56,69.95,0.103,96.614c12.935,12.935,30.122,20.059,48.395,20.059 c3.165,0,6.293-0.228,9.376-0.65l-0.036-23.111L233.109,115.625z"></path> <path style="fill:#ffffff;" d="M382.977,96.781l-33.189,33.19l-17.681,17.679l-21.174,21.176l21.78,0.033l23.112,0.035 l45.694,0.071l22.881,0.035l22.781,0.035c2.113-36.733-8.398-74.087-31.524-104.941L399.344,80.41L382.977,96.781z"></path> <polygon style="fill:#ffffff;" points="240.29,303.958 272.56,336.229 288.672,352.339 304.782,368.449 337.003,336.229 320.893,320.116 304.782,304.006 272.512,271.736 256.402,255.626 240.289,239.516 208.067,271.736 224.18,287.848 "></polygon> <path style="fill:#ffffff;" d="M278.566,45.962l0.073,45.749l0.035,23.111l0.035,21.786l21.177-21.179l17.681-17.681l33.203-33.204 l16.353-16.353l16.33-16.332C355.96,11.187,322.695,0,287.724,0c-3.091,0-6.168,0.097-9.228,0.272l0.035,22.86L278.566,45.962z"></path> <path style="fill:#ffffff;" d="M387.901,214.515l-58.075-0.091l-32.173-0.05l-18.091-0.027l9.06,9.059l16.11,16.111l32.27,32.27 l16.111,16.11l16.111,16.11l31.779-31.779c16.851-16.851,29.105-36.585,36.787-57.635l-24.514-0.036L387.901,214.515z"></path> <polygon style="fill:#ffffff;" points="175.846,368.4 208.118,400.672 224.228,416.783 240.337,432.893 272.56,400.67 256.45,384.56 240.339,368.449 208.067,336.179 191.959,320.069 175.846,303.958 143.626,336.179 159.735,352.29 "></polygon> <path style="fill:#ffffff;" d="M132.972,512c0.003,0,0.005,0,0.008,0c18.218,0,35.341-7.089,48.213-19.962l26.925-26.925 l-16.11-16.11l-16.11-16.111l-32.271-32.27l-16.111-16.11l-16.11-16.111l-26.926,26.926c-26.609,26.612-26.562,69.952,0.1,96.614 C97.511,504.876,114.699,511.999,132.972,512z"></path> </g> <g> <path style="fill:#f66151;" d="M272.512,271.736l32.27,32.268l16.11,16.11l16.11,16.113l16.111-16.113l16.111-16.11l-16.111-16.11 l-16.111-16.11l-32.27-32.27l-16.11-16.111l-9.061-9.059l18.091,0.027l32.173,0.05l58.075,0.091l25.377,0.039l24.514,0.036 c2.719-7.449,4.862-15.063,6.433-22.774c1.533-7.523,2.518-15.138,2.957-22.78l-22.781-0.035l-22.881-0.035l-45.694-0.071 l-23.112-0.035l-21.78-0.033l21.174-21.176l17.681-17.679l33.189-33.19l16.367-16.368l16.315-16.315 c-4.51-6.018-9.487-11.793-14.959-17.263c-5.439-5.439-11.207-10.432-17.246-14.974l-16.33,16.332l-16.353,16.353L317.567,97.75 l-17.681,17.681l-21.176,21.177l-0.035-21.786l-0.035-23.111l-0.073-45.749l-0.035-22.83l-0.035-22.86 c-7.712,0.437-15.322,1.42-22.78,2.935c-7.771,1.578-15.379,3.732-22.774,6.437l0.038,24.61l0.039,25.325l0.088,56.048 l0.036,23.817l0.036,23.111c8.023-1.095,15.714-3.58,22.772-7.364c5.84-3.129,11.251-7.133,16.066-11.948 c0.187-0.187,0.393-0.349,0.586-0.532c1.824-1.703,3.882-3.07,6.106-4.074c2.883-1.299,6.032-2.005,9.297-2.005 c6.105,0,11.851,2.385,16.18,6.714c0,0,0,0,0,0.002c4.318,4.318,6.702,10.051,6.712,16.14c0.005,3.278-0.702,6.439-2.007,9.335 c-1.018,2.259-2.412,4.347-4.154,6.194c-0.153,0.163-0.29,0.337-0.45,0.495l-16.061,16.061l-15.72,15.72l-7.03,7.03l-9.082,9.083 l-16.111,16.11l16.111,16.11L272.512,271.736z"></path> <polygon style="fill:#f66151;" points="143.626,400.622 175.896,432.893 192.006,449.005 208.118,465.115 224.228,449.005 240.337,432.893 224.228,416.783 208.118,400.672 175.846,368.4 159.735,352.29 143.626,336.179 127.513,352.29 111.403,368.4 127.513,384.512 "></polygon> <polygon style="fill:#f66151;" points="208.067,336.179 240.339,368.449 256.45,384.56 272.56,400.67 288.673,384.56 304.782,368.449 288.672,352.339 272.56,336.229 240.29,303.958 224.18,287.848 208.067,271.736 191.958,287.848 175.846,303.958 191.959,320.069 "></polygon> </g> </g></svg>
+          Candy Shop</a>
+        <button
+          class="navbar-toggler "
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#side-bar"
+          aria-controls="side-bar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item px-4">
+              <a class="nav-link text-uppercase" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown px-4">
+              <a class="nav-link dropdown-toggle text-uppercase" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" href="#">Our Varieties</a>
+              <ul class="dropdown-menu bg-danger" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item bg-danger text-light" href="#">Candy</a></li>
+                <li><a class="dropdown-item bg-danger text-light" href="#">Birthday Cakes</a></li>
+                <li><a class="dropdown-item bg-danger text-light" href="#">Chocolate</a></li>
+                <li><a class="dropdown-item bg-danger text-light" href="#">Pastries</a></li>
+              </ul>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link text-uppercase " href="#AboutUs">About Us</a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link text-uppercase" href="#ContactUs">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex " role="search">
+            <button class="btn me-2 text-light " type="submit">
+              Signup
+            </button>
+            <button class="btn  text-light " type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+     <!--Strat of offcanvas-->
+    <div class="offcanvas offcanvas-end p-5 bg-danger position-fixed " tabindex="-1" id="side-bar">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close  btn-close-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body ">
+        <ul class="list-group bg-danger list-group-flush">
+          <li class="list-group-item bg-danger w-100 p-4"><a href="#" class="text-decoration-none text-light">Home</a></li>
+          <li class="list-group-item bg-danger p-4">
+            <a href="#" class="text-decoration-none text-light" data-bs-toggle="collapse" data-bs-target="#collapseVarieties" aria-expanded="false" aria-controls="collapseVarieties">Our Varieties ▼</a>
+          </li>
+          <div class="collapse border-bottom" id="collapseVarieties">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-danger p-2 w-50"><a href="#" class="text-decoration-none text-light">Candy</a></li>
+              <li class="list-group-item bg-danger p-2 w-50"><a href="#" class="text-decoration-none text-light">Birthday Cakes</a></li>
+              <li class="list-group-item bg-danger p-2 w-50"><a href="#" class="text-decoration-none text-light">Chocolate</a></li>
+              <li class="list-group-item bg-danger p-2 w-50"><a href="#" class="text-decoration-none text-light">Pastries</a></li>
+            </ul>
+          </div>
+          <li class="list-group-item bg-danger w-100 p-4"><a href="#" class="text-decoration-none text-light">About Us</a></li>
+          <li class="list-group-item bg-danger w-100 p-4"><a href="#" class="text-decoration-none text-light">Contact Us</a></li>
+          <li class="list-group-item bg-danger w-100 p-4"><a href="#" class="text-decoration-none text-light">SignUp</a></li>
+          <li class="list-group-item bg-danger w-100 p-4"><a href="#" class="text-decoration-none text-light">LogIn</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!--End of offcanvas-->
+    <!-- Start Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active  pinkbtn"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+          class="pinkbtn"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+          class="pinkbtn"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            style="height: 700px"
+            src="https://img.freepik.com/free-photo/front-view-french-macarons-along-with-colorful-candies-white-biscuit-cake-color_140725-24685.jpg?t=st=1721840163~exp=1721843763~hmac=f2bd2050019f87c8287c7af0e39bf80bbd778b6648c4b55d83e9f6e72b2d7e30&w=1380"
+            class="d-block w-90 mx-auto"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            style="height: 700px"
+            src="https://img.freepik.com/free-photo/tasty-cake-with-berries-happy-birthday-title-near-colourful-balloons_23-2148031319.jpg?t=st=1721840219~exp=1721843819~hmac=2aeb45296e6bb20078fd3ea12e13f95b1d217cb81856abdf954e6a5b14a3d974&w=1380"
+            class="d-block w-90 mx-auto"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            style="height: 700px"
+            src="https://img.freepik.com/free-photo/top-view-colorful-marmalade-confitures-sticky-delicious-lined-white-color-sugar-sweet-confectionery_140725-24967.jpg?t=st=1721840390~exp=1721843990~hmac=86e7064b3bf25d0b9a65091f6ec1b14d4a1c599a9b7f2757cb58fbac40692414&w=1380"
+            class="d-block w-90 mx-auto"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- End Carousel -->
+
+    <div class="container mt-4 ">
+      <!-- Start Our Services -->
+      <div class="my-5  pb-5 " id="Varieties">
+        <h4 class="text-primary fw-bold text-center text-uppercase mb-3 pb-3 border-bottom border-success border-1">
+          Our Varieties
+        </h4>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex flex-column align-items-center">
+              <img
+                class="rounded-circle mb-4"
+                style="height: 200px; width: 200px"
+                src="https://img.freepik.com/premium-photo/colorful-lollipops-different-colored-round-candy-top-view_183587-225.jpg?w=1380"
+                alt="Colorful Lollipops"
+              />
+              <p class="text-center text-secondary">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore sunt quasi totam architecto error dicta laboriosam quidem.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex flex-column align-items-center">
+              <img
+                class="rounded-circle mb-4"
+                style="height: 200px; width: 200px"
+                src="https://5.imimg.com/data5/SELLER/Default/2023/7/330410157/ST/ET/NQ/67527382/chocolate-tasting-1-500x500.jpg"
+                alt="Chocolate Tasting"
+              />
+              <p class="text-center text-secondary">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore sunt quasi totam architecto error dicta laboriosam quidem.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex flex-column align-items-center">
+              <img
+                class="rounded-circle mb-4"
+                style="height: 200px; width: 200px"
+                src="https://images.squarespace-cdn.com/content/v1/54151d7ee4b0a43a90459ae2/1578519415477-BUX12C39FS5TYJXEPQ5E/your-guide-to-macarons.jpg"
+                alt="Macarons"
+              />
+              <p class="text-center text-secondary">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore sunt quasi totam architecto error dicta laboriosam quidem.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex flex-column align-items-center">
+              <img
+                class="rounded-circle mb-4"
+                style="height: 200px; width: 200px"
+                src="https://images.pexels.com/photos/2350388/pexels-photo-2350388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Delicious Pastries"
+              />
+              <p class="text-center text-secondary">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore sunt quasi totam architecto error dicta laboriosam quidem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Our Services -->
+
+      <!-- Start About Us -->
+      <div class="row pt-5 border-top border-success border-1 pb-5 " id="AboutUs">
+        <div class="col-md-6 col-12 p-4 align-content-center">
+          <h4
+            class="py-2 text-center text-uppercase text-primary fw-bold  mb-4"
+          >
+            About Us
+          </h4>
+          <p class="text-secondary text-center text-decoration-none">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
+            nihil. Excepturi earum laudantium quisquam neque molestias id
+            distinctio repudiandae, quis natus, nulla cupiditate eveniet illo,
+            repellendus nesciunt accusamus. Consectetur, veritatis. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Perferendis enim sed
+            harum facilis, laboriosam dolor sit, id architecto voluptate
+            exercitationem provident facere aliquam nostrum, tempore porro eum
+            animi. Quis, nostrum.
+          </p>
+          <p class="text-secondary text-center text-decoration-none mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
+            nihil. Excepturi earum laudantium quisquam neque molestias id
+            distinctio repudiandae, quis natus, nulla cupiditate eveniet illo,
+            repellendus nesciunt accusamus. Consectetur, veritatis. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Perferendis enim sed
+            harum facilis, laboriosam dolor sit, id architecto voluptate
+            exercitationem provident facere aliquam nostrum, tempore porro eum
+            animi. Quis, nostrum.
+          </p>
+        </div>
+        <div class="col-md-6 col-12 p-4">
+          <img
+            class="rounded"
+            style="width: 100%; height: 600px"
+            src="https://img.freepik.com/free-photo/front-view-female-cook-pouring-sugar-powder-dried-pineapple-rings-dark-fruit-cooking-job-worker-pastry-cake-pie-bakery_179666-43881.jpg?t=st=1722136179~exp=1722139779~hmac=3861fbdfc46608e0163095c15fa6f6adf83d77a111229ca5a095aee1ef9cc8bc&w=740"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- End About Us -->
+
+      <!-- Start Contact Us -->
+        
+      <form action="" class=" needs-validation row justify-content-center my-5 pt-5 pb-5 border-top border-success border-1" novalidate  id="ContactUs">
+        <div class="col-md-12">
+          <h4 class="text-primary  fw-bold text-center text-uppercase mb-3">
+            Contact Us
+          </h4>
+        </div>
+        <div class="form-group m-3  col-md-8" >
+          <label for="firstName">First Name</label>
+          <input id="firstName" class="form-control" type="text" required>
+          <div class="invalid-feedback">Please enter your First name.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="form-group m-3  col-md-8">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" class="form-control" type="text" required>
+          <div class="invalid-feedback">Please enter your Last name.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="form-group m-3  col-md-8">
+          <label for="email">Email</label>
+          <input id="email" class="form-control" type="email" required>
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="mb-3 m-3  col-md-8">
+          <label for="comment" class="form-label" >Enter Your Message</label>
+          <textarea id="comment" class="form-control" rows="3" required></textarea>
+          <div class="invalid-feedback">Please Type a Message Before Sending.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="form-group mt-3 m-3 col-md-8 ">
+          <button type="submit" class="btn bg-success text-light py-2 px-5">Send</button>
+        </div>
+      </form>
+      <!-- End Contact Us -->
+    </div>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-danger bg-gradient text-light mt-5">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-light bg-primary p-1 rounded">
+        <i class="fa fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-light bg-primary p-1 rounded">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4  text-light bg-success p-1 rounded">
+        <i class="fa fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-light p-1 rounded" style="background-color: palevioletred;">
+        <i class="fa fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-light bg-danger p-1 rounded">
+        <i class="fa fa-youtube-play"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>The Candy Shop
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-decoration-none text-reset">Chocolate fudge</a>
+          </p>
+          <p>
+            <a href="#!" class="text-decoration-none text-reset">Rock Candy</a>
+          </p>
+          <p>
+            <a href="#!" class="text-decoration-none text-reset">Sugar Cookies</a>
+          </p>
+          <p>
+            <a href="#!" class="text-decoration-none text-reset">Birthday Cake</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fa fa-home me-3"></i> Cairo, St. El Hegaz  , EGY</p>
+          <p>
+            <i class="fa fa-envelope me-3"></i>
+            Candy@example.com
+          </p>
+          <p><i class="fa fa-phone me-3"></i> + 01 111 234 56</p>
+          <p><i class="fa fa-print me-3"></i> + 01 111 789 11</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4 text-light bg-danger border-top">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="validation.js"></script>
+  </body>
+</html>
